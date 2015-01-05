@@ -1,0 +1,13 @@
+diff --git a/client/X11/xf_client.c b/client/X11/xf_client.c
+index 6805d98..9ea4b8d 100644
+--- a/client/X11/xf_client.c
++++ b/client/X11/xf_client.c
+@@ -1188,7 +1188,7 @@ BOOL xf_verify_certificate(freerdp* instance, char* subject, char* issuer, char*
+ 		WLog_INFO(TAG, "Do you trust the above certificate? (Y/N) ");
+ 		answer = fgetc(stdin);
+ 
+-		if (feof(stdin))
++		if (ferror(stdin))
+ 		{
+ 			WLog_INFO(TAG, "Error: Could not read answer from stdin.");
+ 			if (instance->settings->CredentialsFromStdin)
