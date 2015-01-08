@@ -1,5 +1,5 @@
 diff --git a/client/X11/xfreerdp.c b/client/X11/xfreerdp.c
-index 6ebfbc0..3648e75 100644
+index 6ebfbc0..718ec28 100644
 --- a/client/X11/xfreerdp.c
 +++ b/client/X11/xfreerdp.c
 @@ -937,7 +937,7 @@ BOOL xf_verify_certificate(freerdp* instance, char* subject, char* issuer, char*
@@ -7,7 +7,7 @@ index 6ebfbc0..3648e75 100644
  		answer = fgetc(stdin);
  
 -		if (feof(stdin))
-+		if (ferror(stdin))
++		if (answer == EOF)
  		{
  			printf("\nError: Could not read answer from stdin.");
  			if (instance->settings->CredentialsFromStdin)
